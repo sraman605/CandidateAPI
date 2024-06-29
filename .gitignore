@@ -1,0 +1,76 @@
+# .NET
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# DNX
+.dnx
+.dnvm
+default.profraw
+
+# Visual Studio 2019
+.vscode/
+.vs/
+.vscode/*
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+*.lnk
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# Windows shortcuts
+*.lnk
+
+# JetBrains Rider
+.idea/
+
+# Rider
+.idea/
+*.sln.iml
+
+# User-specific files
+*.rsuser
+*.sln.dotSettings
+
+# Mono Auto Generated Files
+mono_crash.*
+
+# Web
+client/bin/
+client/obj/
+
+# Include the directory for base class libraries (delete this line if using .NET Core 3.0 or higher)
+packages/
+
+# NuGet Packages
+*.nupkg
+*.snupkg
+.nuget/packages/
+.nuget/repository/
+paket-files/

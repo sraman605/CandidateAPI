@@ -7,11 +7,11 @@ namespace CandidateAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CandidatesController : ControllerBase
+    public class CandidateController : ControllerBase
     {
         private readonly ICandidateService _service;
 
-        public CandidatesController(ICandidateService service)
+        public CandidateController(ICandidateService service)
         {
             _service = service;
         }

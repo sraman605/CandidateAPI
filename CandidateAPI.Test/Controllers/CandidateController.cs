@@ -61,7 +61,7 @@ public class CandidateControllerTests
     public async Task AddOrUpdateCandidate_ReturnsBadRequest_WhenLastNameIsNullOrWhiteSpace()
     {
         // Arrange
-        var candidate = new Candidate { Email = "john.doe@example.com", FirstName = "John", FreeTextComment = "Some comment" };
+        var candidate = new Candidate { Email = "sraman605@gmail.com", FirstName = "Shraman", FreeTextComment = "Some comment" };
 
         // Act
         var result = await _controller.AddOrUpdateCandidate(candidate);
@@ -75,7 +75,7 @@ public class CandidateControllerTests
     public async Task AddOrUpdateCandidate_ReturnsBadRequest_WhenFreeTextCommentIsNullOrWhiteSpace()
     {
         // Arrange
-        var candidate = new Candidate { Email = "john.doe@example.com", FirstName = "John", LastName = "Doe" };
+        var candidate = new Candidate { Email = "sraman605@gmail.com", FirstName = "Shraman", LastName = "Bajracharya" };
 
         // Act
         var result = await _controller.AddOrUpdateCandidate(candidate);
@@ -89,7 +89,7 @@ public class CandidateControllerTests
     public async Task AddOrUpdateCandidate_ReturnsOk_WhenCandidateIsValid()
     {
         // Arrange
-        var candidate = new Candidate { Email = "john.doe@example.com", FirstName = "John", LastName = "Doe", FreeTextComment = "Some comment" };
+        var candidate = new Candidate { Email = "sraman605@gmail.com", FirstName = "Shraman", LastName = "Bajracharya", FreeTextComment = "Some comment" };
         _serviceMock.Setup(s => s.AddOrUpdateCandidate(candidate)).ReturnsAsync(candidate);
 
         // Act

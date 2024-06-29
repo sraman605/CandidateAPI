@@ -21,7 +21,7 @@ namespace CandidateAPI.Services
         //to show in the UI If required in the future.
         public async Task<Candidate?> GetCandidateByEmail(string email)
         {
-            return await _repository.GetCandidateByEmail(email);
+            throw new NotImplementedException();
         }
     }
 }

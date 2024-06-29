@@ -41,7 +41,8 @@ namespace CandidateAPI.Repositories
 
         public async Task<Candidate?> GetCandidateByEmail(string email)
         {
-            return await _context.Candidates.FirstOrDefaultAsync(c => c.Email == email);
+            //return await _context.Candidates.FirstOrDefaultAsync(c => c.Email == email);
+            throw new NotImplementedException();
         }
     }
 }

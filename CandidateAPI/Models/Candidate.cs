@@ -1,4 +1,6 @@
-﻿namespace CandidateAPI.Models
+﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
+
+namespace CandidateAPI.Models
 {
     public class Candidate
     {

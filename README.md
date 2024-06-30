@@ -15,7 +15,7 @@ Before you begin, ensure you have the following installed:
 1. **Clone the repository:**
 
     ```bash
-    git clone https://github.com/yourusername/CandidateAPI.git
+    git clone https://github.com/sraman605/CandidateAPI.git
     cd CandidateAPI
     ```
 
@@ -128,7 +128,4 @@ Before you begin, ensure you have the following installed:
 
 Contributions are welcome! Please submit a pull request or open an issue to discuss changes.
 
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 

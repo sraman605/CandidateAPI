@@ -1,6 +1,7 @@
 ﻿using CandidateAPI.Models;
 using CandidateAPI.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Caching.Memory;
 
 namespace CandidateAPI.Controllers
 {
@@ -13,13 +14,15 @@ namespace CandidateAPI.Controllers
     {
 
         private readonly ICandidateService _service;
+        private readonly IMemoryCache _cache;
         /// <summary>
         /// Constructor for CandidateController.
         /// </summary>
         /// <param name="service">The candidate service implementation.</param>
-        public CandidateController(ICandidateService service)
+        public CandidateController(ICandidateService service, IMemoryCache cache)
         {
             _service = service;
+            _cache = cache;
         }
 
         /// <summary>
@@ -49,8 +52,26 @@ namespace CandidateAPI.Controllers
                 default:
                     try
                     {
-                        var result = await _service.AddOrUpdateCandidate(candidate);
-                        return Ok(result);
+                        var cacheKey = $"Candidate_{candidate.Email}";
+
+                        /// <summary>
+                        /*Before calling the service to add or update a candidate,
+                       the cache is checked to see if the candidate with the same email exists.
+                       If not found in the cache, the candidate is processed and then added to the cache.*/
+                        /// </summary>
+
+                        if (!_cache.TryGetValue(cacheKey, out Candidate cachedCandidate))
+                        {
+                            // If not in cache, add or update the candidate and cache the result
+                            var result = await _service.AddOrUpdateCandidate(candidate);
+                            var cacheEntryOptions = new MemoryCacheEntryOptions()
+                                .SetSlidingExpiration(TimeSpan.FromMinutes(5)); // Cache for 5 minutes
+                            _cache.Set(cacheKey, result, cacheEntryOptions);
+
+                            return Ok(result);
+                        }
+                        // Return cached candidate if found
+                        return Ok(cachedCandidate);
                     }
                     catch (Exception ex)
                     {

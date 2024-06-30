@@ -16,6 +16,9 @@ namespace CandidateAPI.Config
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
             builder.Services.AddScoped<ICandidateRepository, CandidateRepository>();
             builder.Services.AddScoped<ICandidateService, CandidateService>();
+            /*using in memory caching for simplicity.
+            however, we can use tools lie Redis once we scale up. */ 
+            builder.Services.AddMemoryCache();
             return builder;
 
         }
